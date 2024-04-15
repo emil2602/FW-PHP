@@ -4,8 +4,34 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "996b7fe77d521676cda0ba2e7974549d",
+    "content-hash": "e9f21c7d4a2c9e2cf1e830d0919a0de2",
     "packages": [
+        {
+            "name": "fw/php-fw",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "fw",
+                "reference": "5389d126a4ec23ef967c392ef6a61f8aec46527e"
+            },
+            "require": {
+                "nikic/fast-route": "^1.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Fw\\PhpFw\\": "src/"
+                }
+            },
+            "authors": [
+                {
+                    "name": "emil2602"
+                }
+            ],
+            "transport-options": {
+                "relative": true
+            }
+        },
         {
             "name": "nikic/fast-route",
             "version": "v1.3.0",
@@ -127,7 +153,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "fw/php-fw": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],

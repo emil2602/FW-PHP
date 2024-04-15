@@ -1,0 +1,17 @@
+{
+  "name": "fw/php-fw",
+  "minimum-stability": "dev",
+  "autoload": {
+    "psr-4": {
+      "Fw\\PhpFw\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "emil2602"
+    }
+  ],
+  "require": {
+    "nikic/fast-route": "^1.3"
+  }
+}
