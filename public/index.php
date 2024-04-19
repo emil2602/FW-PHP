@@ -3,14 +3,14 @@
 require_once  dirname(__DIR__).'/vendor/autoload.php';
 
 use Fw\PhpFw\Http\Request;
-use Fw\PhpFw\Http\Kernel;
-use Fw\PhpFw\Routing\Router;
 
 define('BASE_PATH', dirname(__DIR__));
 
-$router = new Router();
+/** @var \League\Container\Container $container */
+$container = require BASE_PATH . '/config/services.php';
 
-$kernel = new Kernel($router);
+$kernel = $container->get(\Fw\PhpFw\Http\Kernel::class);
+
 $response = $kernel->handle(Request::createFromGlobals());
 
 $response->send();

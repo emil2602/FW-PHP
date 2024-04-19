@@ -16,6 +16,38 @@
       <path value="$PROJECT_DIR$/vendor/laravel/pint" />
       <path value="$PROJECT_DIR$/vendor/composer" />
       <path value="$PROJECT_DIR$/vendor/fw/php-fw" />
+      <path value="$PROJECT_DIR$/vendor/league/container" />
+      <path value="$PROJECT_DIR$/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/fw/vendor/theseer/tokenizer" />
+      <path value="$PROJECT_DIR$/fw/vendor/phpunit/php-code-coverage" />
+      <path value="$PROJECT_DIR$/fw/vendor/phpunit/php-file-iterator" />
+      <path value="$PROJECT_DIR$/fw/vendor/sebastian/type" />
+      <path value="$PROJECT_DIR$/fw/vendor/sebastian/diff" />
+      <path value="$PROJECT_DIR$/fw/vendor/league/container" />
+      <path value="$PROJECT_DIR$/fw/vendor/phpunit/php-invoker" />
+      <path value="$PROJECT_DIR$/fw/vendor/sebastian/lines-of-code" />
+      <path value="$PROJECT_DIR$/fw/vendor/sebastian/object-enumerator" />
+      <path value="$PROJECT_DIR$/fw/vendor/phpunit/php-text-template" />
+      <path value="$PROJECT_DIR$/fw/vendor/sebastian/comparator" />
+      <path value="$PROJECT_DIR$/fw/vendor/sebastian/code-unit" />
+      <path value="$PROJECT_DIR$/fw/vendor/phpunit/phpunit" />
+      <path value="$PROJECT_DIR$/fw/vendor/sebastian/exporter" />
+      <path value="$PROJECT_DIR$/fw/vendor/sebastian/cli-parser" />
+      <path value="$PROJECT_DIR$/fw/vendor/phpunit/php-timer" />
+      <path value="$PROJECT_DIR$/fw/vendor/sebastian/version" />
+      <path value="$PROJECT_DIR$/fw/vendor/sebastian/complexity" />
+      <path value="$PROJECT_DIR$/fw/vendor/sebastian/recursion-context" />
+      <path value="$PROJECT_DIR$/fw/vendor/sebastian/environment" />
+      <path value="$PROJECT_DIR$/fw/vendor/sebastian/global-state" />
+      <path value="$PROJECT_DIR$/fw/vendor/sebastian/code-unit-reverse-lookup" />
+      <path value="$PROJECT_DIR$/fw/vendor/sebastian/object-reflector" />
+      <path value="$PROJECT_DIR$/fw/vendor/myclabs/deep-copy" />
+      <path value="$PROJECT_DIR$/fw/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/fw/vendor/composer" />
+      <path value="$PROJECT_DIR$/fw/vendor/nikic/php-parser" />
+      <path value="$PROJECT_DIR$/fw/vendor/nikic/fast-route" />
+      <path value="$PROJECT_DIR$/fw/vendor/phar-io/version" />
+      <path value="$PROJECT_DIR$/fw/vendor/phar-io/manifest" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.2" />
