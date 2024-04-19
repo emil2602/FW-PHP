@@ -12,11 +12,12 @@
             "dist": {
                 "type": "path",
                 "url": "fw",
-                "reference": "d221dd368e2520a74b670ebd76e1c478d539f006"
+                "reference": "a068433215d7257cc41ffb293552c35845537556"
             },
             "require": {
                 "league/container": "4.2.0",
-                "nikic/fast-route": "^1.3"
+                "nikic/fast-route": "^1.3",
+                "twig/twig": "1.6.5"
             },
             "require-dev": {
                 "phpunit/phpunit": "10.5.x-dev"
@@ -28,9 +29,7 @@
                 }
             },
             "autoload-dev": {
-                "psr-4": {
-                    "Fw\\PhpFw\\Tests\\": "tests"
-                }
+                "psr-4": []
             },
             "authors": [
                 {
@@ -225,6 +224,54 @@
                 "source": "https://github.com/php-fig/container/tree/2.0.2"
             },
             "time": "2021-11-05T16:47:00+00:00"
+        },
+        {
+            "name": "twig/twig",
+            "version": "1.6.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/twigphp/Twig.git",
+                "reference": "97ade38d5c0b095f8ed9fadb61f71ab79f13d7af"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/97ade38d5c0b095f8ed9fadb61f71ab79f13d7af",
+                "reference": "97ade38d5c0b095f8ed9fadb61f71ab79f13d7af",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Twig_": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Armin Ronacher",
+                    "email": "armin.ronacher@active-4.com"
+                }
+            ],
+            "description": "Twig, the flexible, fast, and secure template language for PHP",
+            "homepage": "http://twig.sensiolabs.org",
+            "keywords": [
+                "templating"
+            ],
+            "support": {
+                "issues": "https://github.com/twigphp/Twig/issues",
+                "source": "https://github.com/twigphp/Twig/tree/v1.6.5"
+            },
+            "time": "2012-04-11T09:00:38+00:00"
         }
     ],
     "packages-dev": [

@@ -2,14 +2,21 @@
 
 namespace App\Controllers;
 
+use Fw\PhpFw\Controller\AbstractController;
 use Fw\PhpFw\Http\Response;
 
-class HomeController
+class HomeController extends AbstractController
 {
+
+    public function __construct(
+    ) {
+    }
+
     public function index(): Response
     {
+
         $content = 'shit';
 
-        return new Response($content);
+        return $this->render('home.html.twig', ['a' => 123]);
     }
 }
