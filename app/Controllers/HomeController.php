@@ -15,8 +15,6 @@ class HomeController extends AbstractController
     public function index(): Response
     {
 
-        $content = 'shit';
-
-        return $this->render('home.html.twig', ['a' => 123]);
+        return $this->render('home.html.twig', ['a' => 1233]);
     }
 }

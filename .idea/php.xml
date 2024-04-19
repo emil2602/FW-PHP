@@ -54,6 +54,11 @@
       <path value="$PROJECT_DIR$/fw/vendor/symfony/polyfill-ctype" />
       <path value="$PROJECT_DIR$/fw/vendor/symfony/polyfill-mbstring" />
       <path value="$PROJECT_DIR$/fw/vendor/symfony/polyfill-php80" />
+      <path value="$PROJECT_DIR$/fw/vendor/symfony/var-dumper" />
+      <path value="$PROJECT_DIR$/vendor/symfony/deprecation-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php80" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.2" />
