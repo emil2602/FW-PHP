@@ -2,15 +2,19 @@
 
 namespace App\Controllers;
 
+use Fw\PhpFw\Controller\AbstractController;
 use Fw\PhpFw\Http\Response;
 
-class PostController
+class PostController extends AbstractController
 {
 
     public function show(int $id)
     {
-        $content = "Shit with" . $id;
+        return $this->render('post.html.twig', ["id" => $id]);
+    }
 
-        return new Response($content);
+    public function create()
+    {
+        return $this->render('create_post.html.twig');
     }
 }
