@@ -1,6 +1,7 @@
 <?php
 
 use Fw\PhpFw\Controller\AbstractController;
+use Fw\PhpFw\Dbal\ConnectionFactory;
 use Fw\PhpFw\Http\Kernel;
 use League\Container\Argument\Literal\StringArgument;
 use League\Container\Container;
@@ -12,6 +13,7 @@ use Twig\Loader\FilesystemLoader;
 
 $routes = include BASE_PATH . '/routes/web.php';
 $viewsPath = BASE_PATH . '/views';
+$databaseUrl = "pdo-mysql://localhost:3306/foo?charset=utf8mb4";
 
 $container = new Container();
 
@@ -31,5 +33,11 @@ $container->addShared('twig-loader', FilesystemLoader::class)
 $container->addShared('twig', Environment::class)->addArgument('twig-loader');
 
 $container->inflector(AbstractController::class)->invokeMethod('setContainer', [$container]);
+
+$container->add(ConnectionFactory::class)->addArgument(new StringArgument($databaseUrl));
+
+$container->addShared(Connection::class, function () use ($container): Connection {
+    return $container->get(ConnectionFactory::class)->create();
+});
 
 return $container;

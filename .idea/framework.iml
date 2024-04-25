@@ -53,6 +53,10 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-mbstring" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-php80" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/twig/twig" />
+      <excludeFolder url="file://$MODULE_DIR$/fw/vendor/doctrine/dbal" />
+      <excludeFolder url="file://$MODULE_DIR$/fw/vendor/doctrine/deprecations" />
+      <excludeFolder url="file://$MODULE_DIR$/fw/vendor/psr/cache" />
+      <excludeFolder url="file://$MODULE_DIR$/fw/vendor/psr/log" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
