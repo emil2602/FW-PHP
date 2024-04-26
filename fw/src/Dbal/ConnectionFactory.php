@@ -8,15 +8,13 @@ use Doctrine\DBAL\DriverManager;
 class ConnectionFactory
 {
     public function __construct(
-        private readonly string $databaseUrl
+        private readonly array $connectionParams
     ) {
     }
 
     public function create(): Connection
     {
-        return DriverManager::getConnection([
-            'url' => $this->databaseUrl,
-        ]);
+        return DriverManager::getConnection($this->connectionParams);
     }
 
 }

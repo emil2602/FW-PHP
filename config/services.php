@@ -1,5 +1,6 @@
 <?php
 
+use Doctrine\DBAL\Connection;
 use Fw\PhpFw\Controller\AbstractController;
 use Fw\PhpFw\Dbal\ConnectionFactory;
 use Fw\PhpFw\Http\Kernel;
@@ -13,11 +14,19 @@ use Twig\Loader\FilesystemLoader;
 
 $routes = include BASE_PATH . '/routes/web.php';
 $viewsPath = BASE_PATH . '/views';
-$databaseUrl = "pdo-mysql://localhost:3306/foo?charset=utf8mb4";
+$connectionParams = [
+    'dbname' => 'fw',
+    'user' => 'root',
+    'password' => '',
+    'host' => 'localhost',
+    'driver' => 'pdo_mysql',
+];
 
 $container = new Container();
 
 $container->delegate(new ReflectionContainer(true));
+
+$container->add('framework-cmd-namespace', new StringArgument('Fw\\PhpFw\\Console\\Commands\\'));
 
 $container->add(RouterInterface::class, Router::class);
 
@@ -34,10 +43,14 @@ $container->addShared('twig', Environment::class)->addArgument('twig-loader');
 
 $container->inflector(AbstractController::class)->invokeMethod('setContainer', [$container]);
 
-$container->add(ConnectionFactory::class)->addArgument(new StringArgument($databaseUrl));
+$container->add(ConnectionFactory::class)->addArgument($connectionParams);
 
 $container->addShared(Connection::class, function () use ($container): Connection {
     return $container->get(ConnectionFactory::class)->create();
 });
+
+$container->add(\Fw\PhpFw\Console\Application::class)->addArgument($container);
+
+$container->add(\Fw\PhpFw\Console\Kernel::class)->addArgument($container)->addArgument(\Fw\PhpFw\Console\Application::class);
 
 return $container;

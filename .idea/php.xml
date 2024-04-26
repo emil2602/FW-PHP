@@ -63,6 +63,10 @@
       <path value="$PROJECT_DIR$/fw/vendor/psr/log" />
       <path value="$PROJECT_DIR$/fw/vendor/doctrine/dbal" />
       <path value="$PROJECT_DIR$/fw/vendor/doctrine/deprecations" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/dbal" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/deprecations" />
+      <path value="$PROJECT_DIR$/vendor/psr/cache" />
+      <path value="$PROJECT_DIR$/vendor/psr/log" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.2" />

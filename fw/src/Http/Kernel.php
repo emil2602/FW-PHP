@@ -5,7 +5,6 @@ namespace Fw\PhpFw\Http;
 use Doctrine\DBAL\Connection;
 use Fw\PhpFw\Routing\RouterInterface;
 use League\Container\Container;
-use function FastRoute\simpleDispatcher;
 
 class Kernel
 {

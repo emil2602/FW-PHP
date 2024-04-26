@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "5ec03763018ef336c6f9e1abec2598083931cb7c"
+                "reference": "4ff0398e9e84220dbea7afd7fb46c60fe1bdca49"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/5ec03763018ef336c6f9e1abec2598083931cb7c",
-                "reference": "5ec03763018ef336c6f9e1abec2598083931cb7c",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/4ff0398e9e84220dbea7afd7fb46c60fe1bdca49",
+                "reference": "4ff0398e9e84220dbea7afd7fb46c60fe1bdca49",
                 "shasum": ""
             },
             "require": {
@@ -112,7 +112,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-04-16T21:49:37+00:00"
+            "time": "2024-04-25T08:33:57+00:00"
         },
         {
             "name": "doctrine/deprecations",
