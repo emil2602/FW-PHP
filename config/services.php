@@ -53,4 +53,6 @@ $container->add(\Fw\PhpFw\Console\Application::class)->addArgument($container);
 
 $container->add(\Fw\PhpFw\Console\Kernel::class)->addArgument($container)->addArgument(\Fw\PhpFw\Console\Application::class);
 
+$container->add('migrate', \Fw\PhpFw\Console\Commands\MigrateCommand::class)->addArgument(Connection::class)->addArgument(new StringArgument(dirname(__DIR__). '/database/migrations'));
+
 return $container;
