@@ -5,6 +5,7 @@ namespace Fw\PhpFw\Routing;
 
 use FastRoute\Dispatcher;
 use FastRoute\RouteCollector;
+use Fw\PhpFw\Controller\AbstractController;
 use Fw\PhpFw\Http\Request;
 use League\Container\Container;
 use function FastRoute\simpleDispatcher;
@@ -22,6 +23,10 @@ class Router implements RouterInterface
         if(is_array($handler)) {
             [$controllerId, $method] = $handler;
             $controller = $container->get($controllerId);
+
+            if (is_subclass_of($controller, AbstractController::class)) {
+                $controller->setRequest($request);
+            }
 
             $handler = [$controller, $method];
         }

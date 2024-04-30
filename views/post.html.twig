@@ -1,5 +1,6 @@
 {% extends 'index.html.twig' %}
 
 {% block main %}
-    <h3>Post with {{ id }}</h3>
+    <h3>{{ post.title }}</h3>
+    <p>{{ post.body }}</p>
 {% endblock %}

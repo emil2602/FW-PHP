@@ -22,6 +22,8 @@ class MigrateCommand implements \Fw\PhpFw\Console\ConsoleInterface
     public function execute(array $params = []): int
     {
         try {
+            $this->connection->setAutoCommit(false);
+
             $this->createMigrationTable();
 
             $appliedMigrations = $this->getAppliedMigrations();
@@ -49,6 +51,8 @@ class MigrateCommand implements \Fw\PhpFw\Console\ConsoleInterface
 
             throw $e;
         }
+
+        $this->connection->setAutoCommit(true);
 
         return 0;
     }
