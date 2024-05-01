@@ -4,6 +4,9 @@ use Doctrine\DBAL\Connection;
 use Fw\PhpFw\Controller\AbstractController;
 use Fw\PhpFw\Dbal\ConnectionFactory;
 use Fw\PhpFw\Http\Kernel;
+use Fw\PhpFw\Session\Session;
+use Fw\PhpFw\Session\SessionInterface;
+use Fw\PhpFw\Template\TwigFactory;
 use League\Container\Argument\Literal\StringArgument;
 use League\Container\Container;
 use Fw\PhpFw\Routing\Router;
@@ -36,10 +39,17 @@ $container->add(Kernel::class)
     ->addArgument(RouterInterface::class)
     ->addArgument($container);
 
-$container->addShared('twig-loader', FilesystemLoader::class)
-    ->addArgument(new StringArgument($viewsPath));
+$container->addShared(SessionInterface::class, Session::class);
 
-$container->addShared('twig', Environment::class)->addArgument('twig-loader');
+$container->add('twig-factory', TwigFactory::class)
+          ->addArguments([
+              new StringArgument($viewsPath),
+              SessionInterface::class,
+          ]);
+
+$container->addShared('twig', function () use ($container) {
+    return $container->get('twig-factory')->create();
+});
 
 $container->inflector(AbstractController::class)->invokeMethod('setContainer', [$container]);
 
