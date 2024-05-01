@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Entities\Post;
 use App\Services\PostService;
 use Fw\PhpFw\Controller\AbstractController;
+use Fw\PhpFw\Http\RedirectResponse;
 use Fw\PhpFw\Http\Request;
 use Fw\PhpFw\Http\Response;
 
@@ -35,8 +36,10 @@ class PostController extends AbstractController
             $this->request->postData['body']
         );
 
-        $id = $this->postService->save($post);
+        $post = $this->postService->save($post);
 
-        print_r($id);
+        var_dump($post);
+
+        return new RedirectResponse("/posts/{$post->getId()}");
     }
 }

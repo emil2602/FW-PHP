@@ -24,4 +24,13 @@ class Response
         return $this;
     }
 
+    public function getHeader($key)
+    {
+        return $this->headers[$key];
+    }
+
+    public function getStatusCode()
+    {
+        return $this->statusCode;
+    }
 }
