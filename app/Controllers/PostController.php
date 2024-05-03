@@ -6,16 +6,12 @@ use App\Entities\Post;
 use App\Services\PostService;
 use Fw\PhpFw\Controller\AbstractController;
 use Fw\PhpFw\Http\RedirectResponse;
-use Fw\PhpFw\Http\Request;
-use Fw\PhpFw\Http\Response;
-use Fw\PhpFw\Session\SessionInterface;
 
 class PostController extends AbstractController
 {
 
     public function __construct(
         private PostService $postService,
-        private SessionInterface $session
     )
     {
     }
@@ -24,7 +20,6 @@ class PostController extends AbstractController
     {
         $post = $this->postService->find($id);
 
-        $this->session->setFlash('success', 'Post successfully created');
         return $this->render('post.html.twig', ["post" => $post]);
     }
 
@@ -41,6 +36,10 @@ class PostController extends AbstractController
         );
 
         $post = $this->postService->save($post);
+
+        $this->request->getSession()->setFlash(
+            'success', 'Post successfully created'
+        );
 
         return new RedirectResponse("/posts/{$post->getId()}");
     }
