@@ -10,7 +10,7 @@ class Request
     private SessionInterface $session;
     public function __construct(
         private readonly array $getParams,
-        public readonly array $postData,
+        private readonly array $postData,
         private readonly array $cookie,
         private readonly array $server,
         private readonly array $files,
@@ -53,5 +53,10 @@ class Request
     public function setSession(SessionInterface $session): void
     {
         $this->session = $session;
+    }
+
+    public function input(string $key, mixed $default = null)
+    {
+        return $this->postData[$key] ?? $default;
     }
 }
