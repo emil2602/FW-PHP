@@ -4,11 +4,13 @@ namespace App\Services;
 
 use App\Entities\User;
 use Doctrine\DBAL\Connection;
+use Fw\PhpFw\Authentication\AuthUserInterface;
+use Fw\PhpFw\Authentication\UserServiceInterface;
 
-class UserService
+class UserService implements UserServiceInterface
 {
     public function __construct(
-        private Connection $connection
+        private readonly Connection $connection
     )
     {
     }
@@ -37,5 +39,31 @@ class UserService
         $user->setId($id);
 
         return $user;
+    }
+
+    public function findByEmail(string $email): ?AuthUserInterface
+    {
+        $queryBuilder = $this->connection->createQueryBuilder();
+
+        $result = $queryBuilder
+            ->select('*')
+            ->from('users')
+            ->where('email = :email')
+            ->setParameter('email', $email)
+            ->executeQuery();
+
+        $user = $result->fetchAssociative();
+
+        if (!$user) {
+            return null;
+        }
+
+        return User::create(
+            email: $user['email'],
+            password: $user['password'],
+            createdAt: new \DateTimeImmutable($user['created_at']) ,
+            name: $user['name'],
+            id: $user['id']
+        );
     }
 }

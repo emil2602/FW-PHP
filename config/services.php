@@ -1,6 +1,9 @@
 <?php
 
+use App\Services\UserService;
 use Doctrine\DBAL\Connection;
+use Fw\PhpFw\Authentication\SessionAuthentication;
+use Fw\PhpFw\Authentication\SessionAuthInterface;
 use Fw\PhpFw\Controller\AbstractController;
 use Fw\PhpFw\Dbal\ConnectionFactory;
 use Fw\PhpFw\Http\Kernel;
@@ -38,7 +41,8 @@ $container->add(RouterInterface::class, Router::class);
 
 $container->extend(RouterInterface::class)->addMethodCall('registerRoutes', [$routes]);
 
-$container->add(RequestHandlerInterface::class, RequestHandler::class)->addArgument($container);
+$container->add(RequestHandlerInterface::class, RequestHandler::class)
+    ->addArgument($container);
 
 $container->add(Kernel::class)
     ->addArgument(RouterInterface::class)
@@ -58,9 +62,11 @@ $container->addShared('twig', function () use ($container) {
     return $container->get('twig-factory')->create();
 });
 
-$container->inflector(AbstractController::class)->invokeMethod('setContainer', [$container]);
+$container->inflector(AbstractController::class)
+    ->invokeMethod('setContainer', [$container]);
 
-$container->add(ConnectionFactory::class)->addArgument($connectionParams);
+$container->add(ConnectionFactory::class)
+    ->addArgument($connectionParams);
 
 $container->addShared(Connection::class, function () use ($container): Connection {
     return $container->get(ConnectionFactory::class)->create();
@@ -68,13 +74,21 @@ $container->addShared(Connection::class, function () use ($container): Connectio
 
 $container->add(\Fw\PhpFw\Console\Application::class)->addArgument($container);
 
-$container->add(\Fw\PhpFw\Console\Kernel::class)->addArgument($container)->addArgument(\Fw\PhpFw\Console\Application::class);
+$container->add(\Fw\PhpFw\Console\Kernel::class)
+    ->addArgument($container)
+    ->addArgument(\Fw\PhpFw\Console\Application::class);
 
-$container->add('migrate', \Fw\PhpFw\Console\Commands\MigrateCommand::class)->addArgument(Connection::class)->addArgument(new StringArgument(dirname(__DIR__). '/database/migrations'));
+$container->add('migrate', \Fw\PhpFw\Console\Commands\MigrateCommand::class)
+    ->addArgument(Connection::class)
+    ->addArgument(new StringArgument(dirname(__DIR__). '/database/migrations'));
 
 $container->add(RouterDispatch::class)->addArguments([
     RouterInterface::class,
     $container
 ]);
+
+$container->add(SessionAuthInterface::class, SessionAuthentication::class)
+    ->addArgument(UserService::class)
+    ->addArgument(SessionInterface::class);
 
 return $container;
